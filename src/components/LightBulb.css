@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+body.on {
+  background: #4b5648;
+}
+
+body {
+  background: radial-gradient(#737d71, #374035);
+}
+
+.bulb {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  z-index: 2;
+  background: rgb(238, 223, 195);
+  box-shadow: 0 0 50px rgb(238, 223, 195), 0 0 100px rgb(238, 223, 195),
+    0 0 150px rgb(238, 223, 195), 0 0 200px rgb(238, 223, 195),
+    0 0 250px rgb(238, 223, 195), 0 0 300px rgb(238, 223, 195),
+    0 0 350px rgb(238, 223, 195);
+}
+
+body.on .bulb {
+  box-shadow: 0 0 0 #4b5648;
+  background: #444;
+}
+
+
+body.on .bulb::before{
+    background: #444;
+}
+
+.bulb::before {
+  content: "";
+  position: absolute;
+  left: 22.5px;
+  top: -50px;
+  width: 35px;
+  height: 83px;
+  background: rgb(238, 223, 195);
+  border-top: 30px solid rgb(35, 35, 35);
+  border-radius: 10px;
+}
+
+.bulb::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  background: rgb(238, 223, 195);
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+body.on .bulb::after{
+    background: #444;
+
+}
+
+/* must change to ON */
+.bulb span:nth-child(1) {
+  position: absolute;
+  top: -16px;
+  left: -4px;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  transform: rotate(342deg);
+  border-bottom-right-radius: 40px;
+  box-shadow: 20px 20px 0 10px rgb(238, 223, 195);
+}
+
+/* non ON */
+body.on .bulb span:nth-child(1) {
+  box-shadow: 20px 20px 0 10px #444;
+}
+
+/* must change to ON */
+.bulb span:nth-child(2) {
+  position: absolute;
+  top: -16px;
+  right: -4px;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  transform: rotate(17.5deg);
+  border-bottom-left-radius: 40px;
+  box-shadow: -20px 20px 0 10px rgb(238, 223, 195);
+}
+
+/* non ON */
+body.on .bulb span:nth-child(2) {
+  box-shadow: -20px 20px 0 10px #444;
+  
+}
+
+/* doesn't matter */
+.wire {
+  position: absolute;
+  left: calc(50% - 2px);
+  bottom: 50%;
+  width: 4px;
+  height: 60vh;
+  background: #000;
+  z-index: 1;
+}
+
+/* must be a prop */
+.switch {
+  position: absolute;
+  top: 55%;
+  left: 41%;
+  width: 80px;
+  height: 80px;
+}
